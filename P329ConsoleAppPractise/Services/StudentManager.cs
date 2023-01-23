@@ -1,8 +1,7 @@
 ﻿using P329ConsoleAppPractise.Models;
-using P329ConsoleAppPractise.Services;
-using System.Linq;
+using P329ConsoleAppPractise.Services.Contracts;
 
-namespace P329ConsoleAppPractise.Managers
+namespace P329ConsoleAppPractise.Services
 {
     internal class StudentManager : ICrudService, IPrintService
     {
@@ -52,12 +51,24 @@ namespace P329ConsoleAppPractise.Managers
 
         public Entity Get(int id)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < _students.Length; i++)
+            {
+                if (_students[i] == null) continue;
+
+                if (_students[i].Id == id)
+                {
+                    return _students[i];
+                }
+            }
+
+            Console.WriteLine("Not found!");
+         
+            return null;
         }
 
         public Entity[] GetAll()
         {
-            throw new NotImplementedException();
+            return _students;
         }
 
         public void Print()
@@ -73,7 +84,22 @@ namespace P329ConsoleAppPractise.Managers
 
         public void Update(int id, Entity entity)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < _students.Length; i++)
+            {
+                if (_students[i] == null) continue;
+
+                if (_students[i].Id == id)
+                {
+                    _students[i] = (Student)entity;
+                    Console.WriteLine("Ugurla deyisdirildi!");
+
+                    return;
+                }
+            }
+
+            Console.WriteLine("Not found!");
         }
+
     }
+
 }

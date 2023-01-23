@@ -1,6 +1,6 @@
 ﻿using P329ConsoleAppPractise.Models;
 
-namespace P329ConsoleAppPractise.Services
+namespace P329ConsoleAppPractise.Services.Contracts
 {
     internal interface ICrudService
     {

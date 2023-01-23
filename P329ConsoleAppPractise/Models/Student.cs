@@ -18,7 +18,7 @@
                 subjects += item + "\n";
             }
 
-            return $"{Id} {Firstname} {Lastname} {FatherName}\n{Group}\n{EntryDate}\n{Course}\nSubjects:\n{subjects}";
+            return $"{Id} {Firstname} {Lastname} {FatherName} {Age}\n{Group}\n{EntryDate}\n{Course}\nSubjects:\n{subjects}";
         }
     }
 }

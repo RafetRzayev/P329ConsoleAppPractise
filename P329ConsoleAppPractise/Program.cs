@@ -1,5 +1,5 @@
-﻿using P329ConsoleAppPractise.Managers;
-using P329ConsoleAppPractise.Models;
+﻿using P329ConsoleAppPractise.Models;
+using P329ConsoleAppPractise.Services;
 
 namespace P329ConsoleAppPractise
 {
@@ -60,6 +60,35 @@ namespace P329ConsoleAppPractise
                     var id = int.Parse(Console.ReadLine());
 
                     studentManager.Delete(id);
+                }
+                else if(command.ToLower().Equals("update student"))
+                {
+                    Console.Write("Enter the id:");
+                    var id = int.Parse(Console.ReadLine());
+
+                    var existStudent = studentManager.Get(id);
+
+                    if (existStudent == null)
+                        continue;
+
+                    Console.WriteLine(existStudent);
+
+                    var student2 = new Student
+                    {
+                        Id = 2,
+                        Firstname = "Sahlar",
+                        Lastname = "Haciyev",
+                        Age = 25,
+                        Course = 1,
+                        EntryDate = DateTime.Now,
+                        Group = new Group
+                        {
+                            Id = 1,
+                            Name = "P329",
+                        },
+                    };
+
+                    studentManager.Update(id, student2);
                 }
 
             } while (command.ToLower() != "quit");
