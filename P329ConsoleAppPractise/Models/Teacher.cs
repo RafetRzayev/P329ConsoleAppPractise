@@ -2,7 +2,7 @@
 {
     internal class Teacher : Person
     {
-        internal Group[] Groups { get; set; } = new Group[10];
+        internal Group[] Groups { get; set; }
 
     }
 }
